@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Conversational Support Interface</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="chat-shell">
+
+    <main id="chat-container">
+
+        <header id="top-bar">
+            <h1>Conversational Support Interface</h1>
+            <p class="signature">Created by Dragos-Andrei Radu</p>
+            <p class="signature">Supervised by Prof. Dr. Song Yan</p>
+        </header>
+
+        <section id="messages"></section>
+
+        <div id="typing-indicator" class="typing hidden">
+            <span></span><span></span><span></span>
+        </div>
+
+        <div id="input-area">
+            <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off">
+            <button id="send-btn">Send</button>
+        </div>
+
+        <button id="end-conversation" class="end-btn">End Conversation</button>
+
+        <div id="session-ended" class="hidden">
+            <h2>Session ended</h2>
+            <p>You can close this window now. Thank you for taking part in this research.</p>
+        </div>
+
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle dark mode">🌙</button>
+
+    </main>
+</div>
+
+<!-- FEEDBACK MODAL -->
+<div id="feedback-modal" class="modal hidden">
+  <div class="modal-content" id="feedback-content">
+
+    <!-- FEEDBACK FORM -->
+    <div id="feedback-form">
+      <h2>Your Feedback</h2>
+
+      <p style="font-size: 14px; margin-top: -6px;">
+        Please rate each statement from <strong>1 = strongly disagree</strong> to
+        <strong>5 = strongly agree</strong>.
+      </p>
+
+      <label>I believe the AI-powered mental health tool can appropriately understand and respond to serious mental health issues:</label>
+      <input type="range" min="1" max="5" value="3" class="slider" id="q1">
+      <div class="slider-value" id="q1-value">3</div>
+
+      <label>Using this AI-powered mental health tool helped me manage emotional distress more effectively:</label>
+      <input type="range" min="1" max="5" value="3" class="slider" id="q2">
+      <div class="slider-value" id="q2-value">3</div>
+
+      <label>I would use an AI-powered mental health tool in the future as well:</label>
+      <input type="range" min="1" max="5" value="3" class="slider" id="q3">
+      <div class="slider-value" id="q3-value">3</div>
+
+      <label>I believe that an AI-powered mental health tool would be easy to use and operate for people in the same age category as me:</label>
+      <input type="range" min="1" max="5" value="3" class="slider" id="q4">
+      <div class="slider-value" id="q4-value">3</div>
+
+      <label>It seems straightforward to learn how to use an AI-powered mental health tool:</label>
+      <input type="range" min="1" max="5" value="3" class="slider" id="q5">
+      <div class="slider-value" id="q5-value">3</div>
+
+      <label>Using an AI-powered mental health tool would be easier than going to in-person mental health support:</label>
+      <input type="range" min="1" max="5" value="3" class="slider" id="q6">
+      <div class="slider-value" id="q6-value">3</div>
+
+      <button id="submit-feedback" class="submit-btn">Submit</button>
+    </div>
+
+    <!-- THANK YOU MESSAGE -->
+    <div id="feedback-thankyou" class="hidden">
+      <h2>Thank you!</h2>
+      <p>Your feedback has been submitted.</p>
+    </div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+<!-- DISCLAIMER MODAL -->
+<div id="disclaimer-modal" class="modal hidden">
+  <div class="modal-content">
+    <h2>Research Participation Information</h2>
+
+    <p>
+      You are invited to take part in a university research study exploring how people interact with
+      AI‑powered supportive conversation tools. Participation is voluntary.
+    </p>
+
+    <p>
+      No personal data is collected or stored. Your messages are used only for research analysis and
+      cannot be linked back to you.
+    </p>
+
+    <p>
+      You may withdraw at any time by closing this window. There are no negative consequences for
+      withdrawing.
+    </p>
+
+    <p>
+      This tool is <strong>not</strong> a clinical or crisis‑support system. It cannot provide medical,
+      psychological, or emergency assistance.
+    </p>
+
+    <button id="disclaimer-accept" class="submit-btn">
+      I consent and wish to continue
+    </button>
+  </div>
+</div>
+
+</body>
+</html>

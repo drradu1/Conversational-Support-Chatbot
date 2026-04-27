@@ -1,0 +1,93 @@
+[
+    {
+        "session_id": "5QGF",
+        "event": "session_start"
+    },
+    {
+        "session_id": "5QGF",
+        "user_message": "hey",
+        "message_type": "casual",
+        "classifier_style": "emotional",
+        "support_style": "emotional",
+        "inferred_state": {
+            "distress_level": "none",
+            "emotional_indicators": [],
+            "other_notes": "neutral greeting"
+        },
+        "risk": 0,
+        "tone": "neutral",
+        "bot_reply": "It's great that you reached out. I'm here to listen and help with anything on your mind. How's your day going so far?"
+    },
+    {
+        "session_id": "5QGF",
+        "user_message": "I have a problem with lust",
+        "message_type": "other",
+        "classifier_style": "emotional",
+        "support_style": "emotional",
+        "inferred_state": {
+            "distress_level": "mild",
+            "emotional_indicators": [
+                "guilt",
+                "conflict",
+                "self-control issues"
+            ],
+            "other_notes": "user may be struggling with impulse control or moral dilemmas related to their desires"
+        },
+        "risk": 1,
+        "tone": "supportive",
+        "bot_reply": "That can be a really tough and sensitive topic. It takes a lot of courage to acknowledge and share your struggles. Remember that you're not alone, and it's okay to feel overwhelmed. Would you like to talk more about what's been going on and how you've been feeling?"
+    },
+    {
+        "session_id": "5QGF",
+        "user_message": "I just keep masturbating like an animal",
+        "message_type": "other",
+        "classifier_style": "emotional",
+        "support_style": "instrumental",
+        "inferred_state": {
+            "distress_level": "moderate",
+            "emotional_indicators": [
+                "shame",
+                "guilt",
+                "loss of control"
+            ],
+            "other_notes": "Potential compulsive behavior, self-deprecating language"
+        },
+        "risk": 2,
+        "tone": "empathetic",
+        "bot_reply": "It sounds like you're struggling with compulsive behavior. Let's break it down: identify your triggers, set boundaries, and find healthier coping mechanisms. Consider tracking your feelings and actions to better understand your patterns. What specific steps do you think you could take to start regaining control?"
+    },
+    {
+        "session_id": "5QGF",
+        "user_message": "idk",
+        "message_type": "other",
+        "classifier_style": "emotional",
+        "support_style": "emotional",
+        "inferred_state": {
+            "distress_level": "none",
+            "emotional_indicators": [],
+            "other_notes": "User response is vague and lacks emotional content."
+        },
+        "risk": 0,
+        "tone": "neutral",
+        "bot_reply": "Not knowing where to start can feel really overwhelming. It's okay to take things one step at a time. Maybe we can explore some small, manageable steps together. What do you think would make you feel more in control of your actions and desires?"
+    },
+    {
+        "session_id": "5QGF",
+        "user_message": "idk",
+        "message_type": "other",
+        "classifier_style": "emotional",
+        "support_style": "emotional",
+        "inferred_state": {
+            "distress_level": "none",
+            "emotional_indicators": [],
+            "other_notes": "User response is vague and lacks emotional content."
+        },
+        "risk": 0,
+        "tone": "neutral",
+        "bot_reply": "It's okay to not have all the answers right now. Sometimes, just acknowledging our struggles is a big step forward. I'm here to support you, and we can take things at your pace. Would it help to talk about what you're feeling when you're in those moments, or what's going on in your life that might be contributing to these feelings?"
+    },
+    {
+        "session_id": "5QGF",
+        "event": "session_end"
+    }
+]

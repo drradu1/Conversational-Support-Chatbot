@@ -1,0 +1,6 @@
+session_id,message_index,user_message,message_type,classifier_style,support_style,distress_level_label,distress_level_num,prev_distress_level_num,distress_delta,risk,tone,emotional_indicators,other_notes
+5QGF,1,hey,casual,emotional,emotional,none,0,,,0,neutral,[],neutral greeting
+5QGF,2,I have a problem with lust,other,emotional,emotional,mild,1,0,1,1,supportive,"['guilt', 'conflict', 'self-control issues']",user may be struggling with impulse control or moral dilemmas related to their desires
+5QGF,3,I just keep masturbating like an animal,other,emotional,instrumental,moderate,2,1,1,2,empathetic,"['shame', 'guilt', 'loss of control']","Potential compulsive behavior, self-deprecating language"
+5QGF,4,idk,other,emotional,emotional,none,0,2,-2,0,neutral,[],User response is vague and lacks emotional content.
+5QGF,5,idk,other,emotional,emotional,none,0,0,0,0,neutral,[],User response is vague and lacks emotional content.
