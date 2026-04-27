@@ -65,7 +65,7 @@ function sendMessage() {
     sendBtn.disabled = true;
     showTyping();
 
-    fetch("http://127.0.0.1:5000/chat", {
+    fetch("https://conversational-support-chatbot-9d5s.onrender.com/chat", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -90,7 +90,7 @@ function sendMessage() {
 }
 
 endConversationBtn.addEventListener("click", () => {
-    fetch("http://127.0.0.1:5000/end_session", {
+    fetch("https://conversational-support-chatbot-9d5s.onrender.com/end_session", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ session_id: sessionId })
@@ -114,7 +114,7 @@ submitFeedbackBtn.addEventListener("click", () => {
     const q5 = document.getElementById("q5").value;
     const q6 = document.getElementById("q6").value;
 
-    fetch("http://127.0.0.1:5000/feedback", {
+    fetch("https://conversational-support-chatbot-9d5s.onrender.com/feedback", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
