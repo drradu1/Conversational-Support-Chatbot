@@ -2,7 +2,7 @@ import uuid
 import time
 import os
 import json
-from flask import Flask, request, jsonify
+from flask import render_template, Flask, request, jsonify
 from flask_cors import CORS
 from groq import Groq
 from dotenv import load_dotenv
@@ -31,6 +31,10 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
 
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+
+@app.route("/")
+def index():
+    return render_template("index.html")
 
 @app.route("/chat", methods=["POST"])
 def chat():
