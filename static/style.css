@@ -379,60 +379,208 @@ body.dark #feedback-thankyou {
 }
 
 /* -------------------------------------- */
-/* MOBILE RESPONSIVE LAYOUT (Phones)      */
+/* MOBILE UI — Optimized but same design  */
 /* -------------------------------------- */
 
 @media (max-width: 600px) {
 
+    /* Remove desktop padding */
     body {
-        padding: 10px;
+        padding: 0;
+        margin: 0;
         align-items: stretch;
+        background: #f3f4f6;
     }
 
-    #chat-shell {
-        max-width: 100%;
-        width: 100%;
-    }
-
+    /* Full-screen container */
     #chat-container {
-        width: 100%;
         height: 100vh;
+        width: 100%;
         border-radius: 0;
-        padding: 18px;
-    }
-
-    #messages {
-        padding: 10px;
-        font-size: 14px;
-    }
-
-    #input-area {
+        padding: 0;
+        box-shadow: none;
+        background: #ffffff;
+        display: flex;
         flex-direction: column;
-        gap: 8px;
+    }
+
+    /* Header simplified */
+    #top-bar {
+        padding: 14px 16px;
+        margin: 0;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    #top-bar h1 {
+        font-size: 18px;
+    }
+
+    .signature {
+        font-size: 12px;
+        margin: 2px 0;
+    }
+
+    /* Messages area */
+    #messages {
+        flex: 1;
+        padding: 14px;
+        border: none;
+        background: #ffffff;
+        overflow-y: auto;
+    }
+
+    .message {
+        font-size: 15px;
+        padding: 12px 14px;
+        margin-bottom: 10px;
+        max-width: 85%;
+    }
+
+    /* Input area anchored to bottom */
+    #input-area {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        padding: 10px;
+        border-top: 1px solid #e5e7eb;
+        display: flex;
+        gap: 10px;
+    }
+
+    #user-input {
+        padding: 12px 14px;
+        font-size: 15px;
+        border-radius: 12px;
     }
 
     #send-btn {
-        width: 100%;
-        padding: 12px;
-        font-size: 15px;
+        padding: 0;
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        font-size: 14px;
     }
 
+    /* End conversation button */
     .end-btn {
         width: 100%;
-        padding: 12px;
+        padding: 14px;
         font-size: 15px;
+        border-radius: 0;
+        margin: 0;
+        position: fixed;
+        bottom: 60px; /* above input bar */
+        left: 0;
     }
 
+    /* Modals full-width */
     .modal-content {
-        width: 90% !important;
-        max-height: 80vh !important;
+        width: 92% !important;
+        max-height: 85vh !important;
+        border-radius: 16px;
         padding: 20px !important;
     }
 
     #feedback-content {
-        width: 95% !important;
+        width: 92% !important;
+    }
+
+    /* Theme toggle repositioned */
+    #theme-toggle {
+        top: 14px;
+        right: 14px;
+        font-size: 20px;
     }
 }
+
+/* -------------------------------------- */
+/* MOBILE DARK MODE — Same design, tuned  */
+/* -------------------------------------- */
+
+@media (max-width: 600px) {
+
+    body.dark {
+        background: #0a0d14;
+    }
+
+    body.dark #chat-container {
+        background: #0f172a;
+        box-shadow: none;
+        border: none;
+    }
+
+    body.dark #top-bar {
+        border-bottom: 1px solid #1e293b;
+    }
+
+    body.dark #messages {
+        background: #0f172a;
+    }
+
+    body.dark .message.bot {
+        background: #1c2535;
+        border: 1px solid #2c3a4d;
+        color: #e5e7eb;
+    }
+
+    body.dark .message.user {
+        background: #1e40af;
+        border: 1px solid #3b82f6;
+        color: #f1f5f9;
+    }
+
+    /* Input bar */
+    body.dark #input-area {
+        background: #111827;
+        border-top: 1px solid #1e293b;
+    }
+
+    body.dark #user-input {
+        background: #0f172a;
+        border: 1px solid #334155;
+        color: #e5e7eb;
+    }
+
+    body.dark #send-btn {
+        background: #3b82f6;
+        color: white;
+    }
+
+    /* End conversation button */
+    body.dark .end-btn {
+        background: #b91c1c;
+        color: white;
+        border: none;
+    }
+
+    /* Modals */
+    body.dark .modal-content {
+        background: #111827;
+        border: 1px solid #1f2937;
+        color: #e5e7eb;
+    }
+
+    /* Feedback modal */
+    body.dark #feedback-content {
+        background: #111827;
+    }
+
+    /* Slider values */
+    body.dark .slider-value {
+        color: #60a5fa;
+    }
+
+    /* Theme toggle */
+    body.dark #theme-toggle {
+        color: #e5e7eb;
+    }
+}
+
+/* -------------------------------------- */
+/* CONFIRM END MODAL BUTTON FIX           */
+/* -------------------------------------- */
 
 #confirm-end-modal .submit-btn {
     padding: 8px 14px !important;
