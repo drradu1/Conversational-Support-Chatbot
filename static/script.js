@@ -89,42 +89,58 @@ function sendMessage() {
     });
 }
 
-// END CONVERSATION — now opens confirmation modal
-endConversationBtn.addEventListener("click", () => {
-    document.getElementById("confirm-end-modal").classList.remove("hidden");
-});
+// ------------------------------
+// DOMContentLoaded WRAPPER
+// ------------------------------
+document.addEventListener("DOMContentLoaded", () => {
 
-// CONFIRM END
-document.getElementById("confirm-end").addEventListener("click", () => {
+    // DISCLAIMER MODAL
+    const disclaimerModal = document.getElementById("disclaimer-modal");
+    const acceptBtn = document.getElementById("disclaimer-accept");
 
-    // Close modal
-    document.getElementById("confirm-end-modal").classList.add("hidden");
+    disclaimerModal.classList.remove("hidden");
 
-    // End session on backend
-    fetch("https://conversational-support-chatbot-9d5s.onrender.com/end_session", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ session_id: sessionId })
+    acceptBtn.addEventListener("click", () => {
+        disclaimerModal.classList.add("hidden");
     });
 
-    // Hide chat UI
-    document.getElementById("messages").style.display = "none";
-    document.getElementById("input-area").style.display = "none";
-    endConversationBtn.style.display = "none";
+    // CONFIRMATION MODAL
+    const confirmModal = document.getElementById("confirm-end-modal");
+    const confirmEndBtn = document.getElementById("confirm-end");
+    const cancelEndBtn = document.getElementById("cancel-end");
 
-    // Show session ended + feedback modal
-    sessionEnded.classList.remove("hidden");
-    feedbackModal.classList.remove("hidden");
+    // Open confirmation modal
+    endConversationBtn.addEventListener("click", () => {
+        confirmModal.classList.remove("hidden");
+    });
+
+    // Confirm end
+    confirmEndBtn.addEventListener("click", () => {
+        confirmModal.classList.add("hidden");
+
+        fetch("https://conversational-support-chatbot-9d5s.onrender.com/end_session", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ session_id: sessionId })
+        });
+
+        document.getElementById("messages").style.display = "none";
+        document.getElementById("input-area").style.display = "none";
+        endConversationBtn.style.display = "none";
+
+        sessionEnded.classList.remove("hidden");
+        feedbackModal.classList.remove("hidden");
+    });
+
+    // Cancel end
+    cancelEndBtn.addEventListener("click", () => {
+        confirmModal.classList.add("hidden");
+    });
 });
 
-// CANCEL END
-document.getElementById("cancel-end").addEventListener("click", () => {
-    document.getElementById("confirm-end-modal").classList.add("hidden");
-});
-
+// FEEDBACK SUBMISSION
 submitFeedbackBtn.addEventListener("click", () => {
 
-    // Collect all slider values
     const q1 = document.getElementById("q1").value;
     const q2 = document.getElementById("q2").value;
     const q3 = document.getElementById("q3").value;
@@ -141,26 +157,12 @@ submitFeedbackBtn.addEventListener("click", () => {
         })
     })
     .then(() => {
-        // Hide form, show thank-you message
         feedbackForm.classList.add("hidden");
         feedbackThankyou.classList.remove("hidden");
 
-        // Auto-close after 2 seconds
         setTimeout(() => {
             feedbackModal.classList.add("hidden");
         }, 2000);
     })
     .catch(err => console.error("Feedback error:", err));
-});
-
-// Disclaimer modal
-document.addEventListener("DOMContentLoaded", () => {
-  const modal = document.getElementById("disclaimer-modal");
-  const acceptBtn = document.getElementById("disclaimer-accept");
-
-  modal.style.display = "flex";
-
-  acceptBtn.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
 });
