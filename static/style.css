@@ -334,7 +334,7 @@ body.dark .modal-content {
 #disclaimer-modal .modal-content {
     width: 600px !important;
     max-width: 90% !important;
-    max-height: 78vh !important;
+    max-height: 70dvh !important;
     overflow-y: auto !important;
     padding: 24px 32px !important;
 }
@@ -353,7 +353,7 @@ body.dark .modal-content {
 }
 
 /* -------------------------------------------------- */
-/* MOBILE LAYOUT (OPTION A — FULL APP-LIKE)           */
+/* MOBILE LAYOUT         */
 /* -------------------------------------------------- */
 
 @media (max-width: 600px) {
