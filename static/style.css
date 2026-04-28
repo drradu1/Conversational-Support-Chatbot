@@ -1,4 +1,7 @@
-/* Base layout */
+/* -------------------------------------------------- */
+/* BASE LAYOUT (DESKTOP)                              */
+/* -------------------------------------------------- */
+
 * {
     box-sizing: border-box;
 }
@@ -16,13 +19,11 @@ body {
     transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Shell */
 #chat-shell {
     width: 100%;
     max-width: 900px;
 }
 
-/* Chat container */
 #chat-container {
     background: linear-gradient(180deg, #f9fafb 0%, #f3f4f6 100%);
     border-radius: 18px;
@@ -184,7 +185,7 @@ body {
     color: #374151;
 }
 
-/* Modal base */
+/* Modals */
 .modal {
     position: fixed;
     top: 0;
@@ -237,14 +238,6 @@ body {
     color: #2563eb;
 }
 
-/* Select */
-.select {
-    padding: 9px 10px;
-    border-radius: 10px;
-    border: 1px solid #d1d5db;
-    font-size: 14px;
-}
-
 /* Submit button */
 .submit-btn {
     padding: 11px;
@@ -266,7 +259,10 @@ body {
     margin-bottom: 10px;
 }
 
-/* Dark mode */
+/* -------------------------------------------------- */
+/* DARK MODE (DESKTOP)                                */
+/* -------------------------------------------------- */
+
 body.dark {
     background: radial-gradient(circle at top, #0a0f1a 0%, #0a0d14 100%);
     color: #e5e7eb;
@@ -317,11 +313,6 @@ body.dark #user-input {
     color: #e5e7eb;
 }
 
-body.dark #user-input:focus {
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 1px rgba(59,130,246,0.5);
-}
-
 body.dark #send-btn {
     background: #3b82f6;
 }
@@ -336,63 +327,51 @@ body.dark .modal-content {
     color: #e5e7eb;
 }
 
-body.dark .select {
-    background: #0f172a;
-    border: 1px solid #334155;
-    color: #e5e7eb;
-}
-
-body.dark .slider-value {
-    color: #60a5fa;
-}
-
-body.dark #feedback-thankyou {
-    color: #e5e7eb;
-}
-
 /* -------------------------------------------------- */
-/* DISCLAIMER MODAL — FINAL OVERRIDES (Guaranteed Fix) */
+/* DISCLAIMER MODAL FIX                               */
 /* -------------------------------------------------- */
 
 #disclaimer-modal .modal-content {
-    width: 600px !important;       /* Wider */
-    max-width: 90% !important;     /* Responsive */
-    max-height: 78vh !important;   /* Prevents tall stretched modal */
-    overflow-y: auto !important;   /* Scroll if needed */
-    padding: 24px 32px !important; /* More balanced spacing */
+    width: 600px !important;
+    max-width: 90% !important;
+    max-height: 78vh !important;
+    overflow-y: auto !important;
+    padding: 24px 32px !important;
 }
 
-/* Tighter spacing between text blocks */
 #disclaimer-modal .modal-content p {
     margin: 10px 0 !important;
     line-height: 1.45;
 }
 
-/* Reduce space under title */
 #disclaimer-modal .modal-content h2 {
     margin-bottom: 12px !important;
 }
 
-/* Reduce space above button */
 #disclaimer-modal .modal-content button {
     margin-top: 14px !important;
 }
 
-/* -------------------------------------- */
-/* MOBILE UI — Optimized but same design  */
-/* -------------------------------------- */
+/* -------------------------------------------------- */
+/* MOBILE LAYOUT (OPTION A — FULL APP-LIKE)           */
+/* -------------------------------------------------- */
 
 @media (max-width: 600px) {
 
-    /* Remove desktop padding */
+    /* Remove desktop spacing */
     body {
-        padding: 0;
-        margin: 0;
+        padding: 0 !important;
+        margin: 0 !important;
+        background: #ffffff;
         align-items: stretch;
-        background: #f3f4f6;
     }
 
-    /* Full-screen container */
+    #chat-shell {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Full-screen chat container */
     #chat-container {
         height: 100vh;
         width: 100%;
@@ -404,7 +383,7 @@ body.dark #feedback-thankyou {
         flex-direction: column;
     }
 
-    /* Header simplified */
+    /* Header */
     #top-bar {
         padding: 14px 16px;
         margin: 0;
@@ -420,13 +399,14 @@ body.dark #feedback-thankyou {
         margin: 2px 0;
     }
 
-    /* Messages area */
+    /* Messages */
     #messages {
         flex: 1;
         padding: 14px;
         border: none;
         background: #ffffff;
         overflow-y: auto;
+        padding-bottom: 100px; /* space for input bar */
     }
 
     .message {
@@ -436,7 +416,7 @@ body.dark #feedback-thankyou {
         max-width: 85%;
     }
 
-    /* Input area anchored to bottom */
+    /* Input bar */
     #input-area {
         position: fixed;
         bottom: 0;
@@ -451,7 +431,7 @@ body.dark #feedback-thankyou {
 
     #user-input {
         padding: 12px 14px;
-        font-size: 15px;
+        font-size: 16px !important; /* prevents zoom */
         border-radius: 12px;
     }
 
@@ -471,11 +451,11 @@ body.dark #feedback-thankyou {
         border-radius: 0;
         margin: 0;
         position: fixed;
-        bottom: 60px; /* above input bar */
+        bottom: 60px;
         left: 0;
     }
 
-    /* Modals full-width */
+    /* Modals */
     .modal-content {
         width: 92% !important;
         max-height: 85vh !important;
@@ -487,7 +467,7 @@ body.dark #feedback-thankyou {
         width: 92% !important;
     }
 
-    /* Theme toggle repositioned */
+    /* Theme toggle */
     #theme-toggle {
         top: 14px;
         right: 14px;
@@ -495,9 +475,9 @@ body.dark #feedback-thankyou {
     }
 }
 
-/* -------------------------------------- */
-/* MOBILE DARK MODE — Same design, tuned  */
-/* -------------------------------------- */
+/* -------------------------------------------------- */
+/* MOBILE DARK MODE                                   */
+/* -------------------------------------------------- */
 
 @media (max-width: 600px) {
 
@@ -531,7 +511,6 @@ body.dark #feedback-thankyou {
         color: #f1f5f9;
     }
 
-    /* Input bar */
     body.dark #input-area {
         background: #111827;
         border-top: 1px solid #1e293b;
@@ -548,39 +527,33 @@ body.dark #feedback-thankyou {
         color: white;
     }
 
-    /* End conversation button */
     body.dark .end-btn {
         background: #b91c1c;
         color: white;
-        border: none;
     }
 
-    /* Modals */
     body.dark .modal-content {
         background: #111827;
         border: 1px solid #1f2937;
         color: #e5e7eb;
     }
 
-    /* Feedback modal */
     body.dark #feedback-content {
         background: #111827;
     }
 
-    /* Slider values */
     body.dark .slider-value {
         color: #60a5fa;
     }
 
-    /* Theme toggle */
     body.dark #theme-toggle {
         color: #e5e7eb;
     }
 }
 
-/* -------------------------------------- */
-/* CONFIRM END MODAL BUTTON FIX           */
-/* -------------------------------------- */
+/* -------------------------------------------------- */
+/* CONFIRM END MODAL BUTTON FIX                       */
+/* -------------------------------------------------- */
 
 #confirm-end-modal .submit-btn {
     padding: 8px 14px !important;
