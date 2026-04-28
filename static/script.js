@@ -89,19 +89,37 @@ function sendMessage() {
     });
 }
 
+// END CONVERSATION — now opens confirmation modal
 endConversationBtn.addEventListener("click", () => {
+    document.getElementById("confirm-end-modal").classList.remove("hidden");
+});
+
+// CONFIRM END
+document.getElementById("confirm-end").addEventListener("click", () => {
+
+    // Close modal
+    document.getElementById("confirm-end-modal").classList.add("hidden");
+
+    // End session on backend
     fetch("https://conversational-support-chatbot-9d5s.onrender.com/end_session", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ session_id: sessionId })
     });
 
+    // Hide chat UI
     document.getElementById("messages").style.display = "none";
     document.getElementById("input-area").style.display = "none";
     endConversationBtn.style.display = "none";
 
+    // Show session ended + feedback modal
     sessionEnded.classList.remove("hidden");
     feedbackModal.classList.remove("hidden");
+});
+
+// CANCEL END
+document.getElementById("cancel-end").addEventListener("click", () => {
+    document.getElementById("confirm-end-modal").classList.add("hidden");
 });
 
 submitFeedbackBtn.addEventListener("click", () => {

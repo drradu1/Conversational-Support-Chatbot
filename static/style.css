@@ -377,3 +377,59 @@ body.dark #feedback-thankyou {
 #disclaimer-modal .modal-content button {
     margin-top: 14px !important;
 }
+
+/* -------------------------------------- */
+/* MOBILE RESPONSIVE LAYOUT (Phones)      */
+/* -------------------------------------- */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 10px;
+        align-items: stretch;
+    }
+
+    #chat-shell {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    #chat-container {
+        width: 100%;
+        height: 100vh;
+        border-radius: 0;
+        padding: 18px;
+    }
+
+    #messages {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    #input-area {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    #send-btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .end-btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .modal-content {
+        width: 90% !important;
+        max-height: 80vh !important;
+        padding: 20px !important;
+    }
+
+    #feedback-content {
+        width: 95% !important;
+    }
+}
