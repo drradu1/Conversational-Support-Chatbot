@@ -26,7 +26,11 @@ SESSION_MEMORY = {}
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
 
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+client = Groq(
+    api_key=os.getenv("GROQ_API_KEY"),
+    timeout=15,
+    max_retries=0
+)
 
 # UTILITIES
 
